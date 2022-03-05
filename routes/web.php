@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MaplistController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +18,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/maplist/index', [MaplistController::class, 'index'])
+    ->middleware(['auth'])->name('maplist.index');
 
-require __DIR__.'/auth.php';
+Route::post(
+    '/maplist/create',
+    [MaplistController::class, 'create']
+)->middleware(['auth'])->name('maplist.create');
+
+require __DIR__ . '/auth.php';

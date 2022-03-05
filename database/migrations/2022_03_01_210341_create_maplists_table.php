@@ -5,7 +5,7 @@
     use Illuminate\Database\Schema\Blueprint;
     use Illuminate\Database\Migrations\Migration;
 
-    class CreateListsTable extends Migration
+    class CreateMaplistsTable extends Migration
     {
         /**
          * Run the migrations.
@@ -14,10 +14,11 @@
          */
         public function up()
         {
-            Schema::create("lists", function (Blueprint $table) {
+            Schema::create("maplists", function (Blueprint $table) {
 
                 $table->bigIncrements('id');
                 $table->string('title');
+                $table->timestamps();
                 $table->foreignId("user_id")->constrained('users')->onDelete('cascade');
 
 
