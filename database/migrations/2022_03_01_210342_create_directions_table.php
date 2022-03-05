@@ -22,7 +22,7 @@
                 $table->bigInteger('origin_location_longitude');
                 $table->bigInteger('destination_latitude');
                 $table->bigInteger('destination_longitude');
-                $table->foreignId("list_id")->constrained("lists")->onDelete('cascade');
+                $table->foreignId("list_id")->constrained("maplists")->onDelete('cascade');
 
 
 
