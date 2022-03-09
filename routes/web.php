@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MaplistController;
+use App\Http\Controllers\DirectionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,5 +26,13 @@ Route::post(
     '/maplist/create',
     [MaplistController::class, 'create']
 )->middleware(['auth'])->name('maplist.create');
+
+Route::get(
+    '/maplist/{list}',
+    [MaplistController::class, 'show']
+)->middleware(['auth'])->name('maplist.show');
+
+Route::get('/direction/index', [DirectionController::class, 'index'])
+    ->middleware(['auth'])->name('direction.index');
 
 require __DIR__ . '/auth.php';

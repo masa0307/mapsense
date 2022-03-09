@@ -18,4 +18,9 @@ class Maplist extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function directions()
+    {
+        return $this->hasMany(Direction::class);
+    }
 }
