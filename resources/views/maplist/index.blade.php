@@ -26,7 +26,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <button class="font-bold text-xl bg-red-400 rounded-full leading-5 text-slate-50"><span
                             class="align-middle">ー</span></button>
-                    <a href="/" class="ml-4">{{$list->title}}</a>
+                    <a href="{{route('maplist.show', $list)}}" class="ml-4">{{$list->title}}</a>
                 </div>
             </div>
             @endforeach

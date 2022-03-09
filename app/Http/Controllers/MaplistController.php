@@ -22,8 +22,11 @@ class MaplistController extends Controller
             'title' => $request->title,
             'user_id' => Auth::id()
         ]);
+        return view('direction.index', ['title' => $request->title]);
+    }
 
-
-        return redirect()->route('maplist.index');
+    public function show(Maplist $list)
+    {
+        return view('direction.index', ['title' => $list->title]);
     }
 }
