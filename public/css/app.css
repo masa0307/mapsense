@@ -696,6 +696,9 @@ select {
 .h-6 {
   height: 1.5rem;
 }
+.h-96 {
+  height: 24rem;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -719,6 +722,9 @@ select {
 }
 .w-48 {
   width: 12rem;
+}
+.w-3\/5 {
+  width: 60%;
 }
 .max-w-xl {
   max-width: 36rem;
@@ -951,29 +957,14 @@ select {
 .pr-4 {
   padding-right: 1rem;
 }
-.pb-6 {
-  padding-bottom: 1.5rem;
-}
-.pt-1 {
-  padding-top: 0.25rem;
-}
-.pb-4 {
-  padding-bottom: 1rem;
-}
 .pb-2 {
   padding-bottom: 0.5rem;
 }
-.pl-2 {
-  padding-left: 0.5rem;
-}
-.pl-6 {
-  padding-left: 1.5rem;
-}
-.pl-8 {
-  padding-left: 2rem;
-}
 .pl-9 {
   padding-left: 2.25rem;
+}
+.pt-1 {
+  padding-top: 0.25rem;
 }
 .text-center {
   text-align: center;
