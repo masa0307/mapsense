@@ -1,4 +1,4 @@
-import { currentMap } from "./mapsjavascript";
+import { currentMap } from "./originmap";
 
 if (navigator.geolocation) {
     // 現在位置を取得できる場合の処理

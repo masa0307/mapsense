@@ -34,7 +34,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key={{config('services.google-map.apikey')}}" defer>
     </script>
     <script src="{{ mix('js/geolocation.js') }}" defer></script>
-    <script src="{{ mix('js/mapsjavascript.js') }}" defer></script>
+    <script src="{{ mix('js/originmap.js') }}" defer></script>
 </body>
 
 </html>

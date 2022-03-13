@@ -2,10 +2,10 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./resources/js/mapsjavascript.js":
-/*!****************************************!*\
-  !*** ./resources/js/mapsjavascript.js ***!
-  \****************************************/
+/***/ "./resources/js/originmap.js":
+/*!***********************************!*\
+  !*** ./resources/js/originmap.js ***!
+  \***********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -125,7 +125,7 @@ var __webpack_exports__ = {};
   !*** ./resources/js/geolocation.js ***!
   \*************************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _mapsjavascript__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mapsjavascript */ "./resources/js/mapsjavascript.js");
+/* harmony import */ var _originmap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./originmap */ "./resources/js/originmap.js");
 
 
 if (navigator.geolocation) {
@@ -138,7 +138,7 @@ if (navigator.geolocation) {
     // document.getElementById("origin-location-longitude").value =
     //     originLocationLongitude;
 
-    (0,_mapsjavascript__WEBPACK_IMPORTED_MODULE_0__.currentMap)(originLocationLat, originLocationLng);
+    (0,_originmap__WEBPACK_IMPORTED_MODULE_0__.currentMap)(originLocationLat, originLocationLng);
   };
 
   var errorCallback = function errorCallback(error) {
