@@ -19,16 +19,22 @@
         <input id="origin-location-longitude" type="hidden" value="経度" name="origin-location-longitude">
         <button id="button">現在地を取得</button>
     </form> --}}
-
-    <div id="map" class="h-96 w-3/5"></div>
+    <div>
+        <button id="origin-button">出発地の座標を設定</button>
+        <div id="origin-map-wrapper" class="hidden fixed z-10 left-0 top-0 h-full w-full overflow-auto bg-gray-400">
+            <div id="origin-map" class="w-1/2 h-1/2 my-15 mx-auto"></div>
+        </div>
+        <input id="origin-lat" type="text" value="出発地の緯度">
+        <input id="origin-lng" type="text" value="出発地の経度">
+    </div>
 
     <a href="{{route('maplist.index')}}">戻る</a>
 
 
-    <script src="https://maps.googleapis.com/maps/api/js?key={{config('services.google-map.apikey')}}" async defer>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{config('services.google-map.apikey')}}" defer>
     </script>
-    <script src="{{ mix('js/geolocation.js') }}"></script>
-    <script src="{{ mix('js/mapsjavascript.js') }}"></script>
+    <script src="{{ mix('js/geolocation.js') }}" defer></script>
+    <script src="{{ mix('js/mapsjavascript.js') }}" defer></script>
 </body>
 
 </html>
