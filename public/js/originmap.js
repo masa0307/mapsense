@@ -34,9 +34,9 @@
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-/*!****************************************!*\
-  !*** ./resources/js/mapsjavascript.js ***!
-  \****************************************/
+/*!***********************************!*\
+  !*** ./resources/js/originmap.js ***!
+  \***********************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "currentMap": () => (/* binding */ currentMap)
@@ -47,8 +47,7 @@ function clickMap(geo, map) {
   var lat = geo.lat();
   var lng = geo.lng(); //中心にスクロール
 
-  map.panTo(geo);
-  console.log(lat, lng); //マーカーの更新
+  map.panTo(geo); //マーカーの更新
 
   marker.setMap(null);
   marker = null;
@@ -59,10 +58,12 @@ function clickMap(geo, map) {
       lng: lng
     }
   });
+  document.getElementById("origin-lat").value = lat;
+  document.getElementById("origin-lng").value = lng;
 }
 
 function currentMap(lat, lng) {
-  var map = new google.maps.Map(document.getElementById("map"), {
+  var map = new google.maps.Map(document.getElementById("origin-map"), {
     zoom: 16,
     center: {
       lat: lat,
@@ -73,12 +74,19 @@ function currentMap(lat, lng) {
   marker = new google.maps.Marker({
     map: map,
     position: new google.maps.LatLng(lat, lng)
-  }); //クリックイベント
+  });
+  document.getElementById("origin-lat").value = lat;
+  document.getElementById("origin-lng").value = lng; //クリックイベント
 
   map.addListener("click", function (e) {
-    console.log(e);
     clickMap(e.latLng, map);
   });
 }
+
+onclick = function onclick(e) {
+  if (e.target === document.getElementById("origin-map-wrapper")) {
+    document.getElementById("origin-map-wrapper").style.display = "none";
+  }
+};
 /******/ })()
 ;

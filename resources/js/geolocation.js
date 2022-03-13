@@ -1,27 +1,27 @@
-import { currentMap } from "./mapsjavascript";
+import { currentMap } from "./originmap";
 
 if (navigator.geolocation) {
     // 現在位置を取得できる場合の処理
-    window.onload = function () {
+    document.getElementById("origin-button").onclick = function () {
         navigator.geolocation.getCurrentPosition(
             successCallback,
             errorCallback
         );
+        document.getElementById("origin-map-wrapper").style.display = "block";
     };
 
     function successCallback(position) {
         //現在位置の緯度を取得
-        let originLocationLatitude = position.coords.latitude;
+        let originLocationLat = position.coords.latitude;
         //現在位置の経度を取得
-        let originLocationLongitude = position.coords.longitude;
+        let originLocationLng = position.coords.longitude;
 
         // document.getElementById("origin-location-latitude").value =
         //     originLocationLatitude;
         // document.getElementById("origin-location-longitude").value =
         //     originLocationLongitude;
-        console.log(originLocationLatitude, originLocationLongitude);
 
-        currentMap(originLocationLatitude, originLocationLongitude);
+        currentMap(originLocationLat, originLocationLng);
     }
 
     function errorCallback(error) {
