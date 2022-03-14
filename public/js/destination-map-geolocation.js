@@ -2,10 +2,10 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./resources/js/originmap.js":
-/*!***********************************!*\
-  !*** ./resources/js/originmap.js ***!
-  \***********************************/
+/***/ "./resources/js/destination-map.js":
+/*!*****************************************!*\
+  !*** ./resources/js/destination-map.js ***!
+  \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -29,12 +29,12 @@ function clickMap(geo, map) {
       lng: lng
     }
   });
-  document.getElementById("origin-lat").value = lat;
-  document.getElementById("origin-lng").value = lng;
+  document.getElementById("destination-lat").value = lat;
+  document.getElementById("destination-lng").value = lng;
 }
 
 function currentMap(lat, lng) {
-  var map = new google.maps.Map(document.getElementById("origin-map"), {
+  var map = new google.maps.Map(document.getElementById("destination-map"), {
     zoom: 16,
     center: {
       lat: lat,
@@ -46,18 +46,16 @@ function currentMap(lat, lng) {
     map: map,
     position: new google.maps.LatLng(lat, lng)
   });
-  document.getElementById("origin-lat").value = lat;
-  document.getElementById("origin-lng").value = lng; //クリックイベント
+  document.getElementById("destination-lat").value = lat;
+  document.getElementById("destination-lng").value = lng; //クリックイベント
 
   map.addListener("click", function (e) {
     clickMap(e.latLng, map);
   });
 
   onclick = function onclick(e) {
-    console.log(e);
-
-    if (e.target === document.getElementById("origin-map-wrapper")) {
-      document.getElementById("origin-map-wrapper").style.display = "none";
+    if (e.target === document.getElementById("destination-map-wrapper")) {
+      document.getElementById("destination-map-wrapper").style.display = "none";
     }
   };
 }
@@ -123,24 +121,24 @@ function currentMap(lat, lng) {
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-/*!*************************************!*\
-  !*** ./resources/js/geolocation.js ***!
-  \*************************************/
+/*!*****************************************************!*\
+  !*** ./resources/js/destination-map-geolocation.js ***!
+  \*****************************************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _originmap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./originmap */ "./resources/js/originmap.js");
+/* harmony import */ var _destination_map__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./destination-map */ "./resources/js/destination-map.js");
 
 
 if (navigator.geolocation) {
   var successCallback = function successCallback(position) {
     //現在位置の緯度を取得
-    var originLocationLat = position.coords.latitude; //現在位置の経度を取得
+    var destinationLocationLat = position.coords.latitude; //現在位置の経度を取得
 
-    var originLocationLng = position.coords.longitude; // document.getElementById("origin-location-latitude").value =
-    //     originLocationLatitude;
-    // document.getElementById("origin-location-longitude").value =
-    //     originLocationLongitude;
+    var destinationLocationLng = position.coords.longitude; // document.getElementById("destination-location-latitude").value =
+    //     destinationLocationLatitude;
+    // document.getElementById("destination-location-longitude").value =
+    //     destinationLocationLongitude;
 
-    (0,_originmap__WEBPACK_IMPORTED_MODULE_0__.currentMap)(originLocationLat, originLocationLng);
+    (0,_destination_map__WEBPACK_IMPORTED_MODULE_0__.currentMap)(destinationLocationLat, destinationLocationLng);
   };
 
   var errorCallback = function errorCallback(error) {
@@ -154,9 +152,9 @@ if (navigator.geolocation) {
   };
 
   // 現在位置を取得できる場合の処理
-  document.getElementById("origin-button").onclick = function () {
+  document.getElementById("destination-button").onclick = function () {
     navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-    document.getElementById("origin-map-wrapper").style.display = "block";
+    document.getElementById("destination-map-wrapper").style.display = "block";
   };
 } else {
   // 現在位置を取得できない場合の処理

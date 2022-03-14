@@ -28,13 +28,24 @@
         <input id="origin-lng" type="text" value="出発地の経度">
     </div>
 
+    <div>
+        <button id="destination-button">目的地の座標を設定</button>
+        <div id="destination-map-wrapper" class="hidden fixed z-10 left-0 top-0 h-full w-full overflow-auto bg-gray-400">
+            <div id="destination-map" class="w-1/2 h-1/2 my-15 mx-auto"></div>
+        </div>
+        <input id="destination-lat" type="text" value="目的地の緯度">
+        <input id="destination-lng" type="text" value="目的地の経度">
+    </div>
+
     <a href="{{route('maplist.index')}}">戻る</a>
 
 
     <script src="https://maps.googleapis.com/maps/api/js?key={{config('services.google-map.apikey')}}" defer>
     </script>
     <script src="{{ mix('js/geolocation.js') }}" defer></script>
+    <script src="{{ mix('js/destination-map-geolocation.js') }}" defer></script>
     <script src="{{ mix('js/originmap.js') }}" defer></script>
+    <script src="{{ mix('js/destination-map.js') }}" defer></script>
 </body>
 
 </html>

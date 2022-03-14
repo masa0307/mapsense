@@ -34,9 +34,9 @@
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-/*!***********************************!*\
-  !*** ./resources/js/originmap.js ***!
-  \***********************************/
+/*!*****************************************!*\
+  !*** ./resources/js/destination-map.js ***!
+  \*****************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "currentMap": () => (/* binding */ currentMap)
@@ -58,12 +58,12 @@ function clickMap(geo, map) {
       lng: lng
     }
   });
-  document.getElementById("origin-lat").value = lat;
-  document.getElementById("origin-lng").value = lng;
+  document.getElementById("destination-lat").value = lat;
+  document.getElementById("destination-lng").value = lng;
 }
 
 function currentMap(lat, lng) {
-  var map = new google.maps.Map(document.getElementById("origin-map"), {
+  var map = new google.maps.Map(document.getElementById("destination-map"), {
     zoom: 16,
     center: {
       lat: lat,
@@ -75,18 +75,16 @@ function currentMap(lat, lng) {
     map: map,
     position: new google.maps.LatLng(lat, lng)
   });
-  document.getElementById("origin-lat").value = lat;
-  document.getElementById("origin-lng").value = lng; //クリックイベント
+  document.getElementById("destination-lat").value = lat;
+  document.getElementById("destination-lng").value = lng; //クリックイベント
 
   map.addListener("click", function (e) {
     clickMap(e.latLng, map);
   });
 
   onclick = function onclick(e) {
-    console.log(e);
-
-    if (e.target === document.getElementById("origin-map-wrapper")) {
-      document.getElementById("origin-map-wrapper").style.display = "none";
+    if (e.target === document.getElementById("destination-map-wrapper")) {
+      document.getElementById("destination-map-wrapper").style.display = "none";
     }
   };
 }

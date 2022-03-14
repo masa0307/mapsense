@@ -15,12 +15,12 @@ function clickMap(geo, map) {
         position: { lat: lat, lng: lng },
     });
 
-    document.getElementById("origin-lat").value = lat;
-    document.getElementById("origin-lng").value = lng;
+    document.getElementById("destination-lat").value = lat;
+    document.getElementById("destination-lng").value = lng;
 }
 
 export function currentMap(lat, lng) {
-    let map = new google.maps.Map(document.getElementById("origin-map"), {
+    let map = new google.maps.Map(document.getElementById("destination-map"), {
         zoom: 16,
         center: { lat: lat, lng: lng },
     });
@@ -31,16 +31,17 @@ export function currentMap(lat, lng) {
         position: new google.maps.LatLng(lat, lng),
     });
 
-    document.getElementById("origin-lat").value = lat;
-    document.getElementById("origin-lng").value = lng;
+    document.getElementById("destination-lat").value = lat;
+    document.getElementById("destination-lng").value = lng;
 
     //クリックイベント
     map.addListener("click", function (e) {
         clickMap(e.latLng, map);
     });
+
     onclick = (e) => {
-        if (e.target === document.getElementById("origin-map-wrapper")) {
-            document.getElementById("origin-map-wrapper").style.display =
+        if (e.target === document.getElementById("destination-map-wrapper")) {
+            document.getElementById("destination-map-wrapper").style.display =
                 "none";
         }
     };
