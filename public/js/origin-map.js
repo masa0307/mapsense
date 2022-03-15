@@ -34,9 +34,9 @@
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-/*!***********************************!*\
-  !*** ./resources/js/originmap.js ***!
-  \***********************************/
+/*!************************************!*\
+  !*** ./resources/js/origin-map.js ***!
+  \************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "currentMap": () => (/* binding */ currentMap)
@@ -63,7 +63,7 @@ function clickMap(geo, map) {
 }
 
 function currentMap(lat, lng) {
-  var map = new google.maps.Map(document.getElementById("origin-map"), {
+  var map = new google.maps.Map(document.getElementById("map"), {
     zoom: 16,
     center: {
       lat: lat,
@@ -83,10 +83,8 @@ function currentMap(lat, lng) {
   });
 
   onclick = function onclick(e) {
-    console.log(e);
-
-    if (e.target === document.getElementById("origin-map-wrapper")) {
-      document.getElementById("origin-map-wrapper").style.display = "none";
+    if (e.target === document.getElementById("map-wrapper")) {
+      document.getElementById("map-wrapper").style.display = "none";
     }
   };
 }

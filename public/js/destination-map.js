@@ -39,7 +39,7 @@ var __webpack_exports__ = {};
   \*****************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "currentMap": () => (/* binding */ currentMap)
+/* harmony export */   "initMap": () => (/* binding */ initMap)
 /* harmony export */ });
 var marker;
 
@@ -62,8 +62,8 @@ function clickMap(geo, map) {
   document.getElementById("destination-lng").value = lng;
 }
 
-function currentMap(lat, lng) {
-  var map = new google.maps.Map(document.getElementById("destination-map"), {
+function initMap(lat, lng) {
+  var map = new google.maps.Map(document.getElementById("map"), {
     zoom: 16,
     center: {
       lat: lat,
@@ -83,8 +83,8 @@ function currentMap(lat, lng) {
   });
 
   onclick = function onclick(e) {
-    if (e.target === document.getElementById("destination-map-wrapper")) {
-      document.getElementById("destination-map-wrapper").style.display = "none";
+    if (e.target === document.getElementById("map-wrapper")) {
+      document.getElementById("map-wrapper").style.display = "none";
     }
   };
 }

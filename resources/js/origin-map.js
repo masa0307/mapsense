@@ -20,7 +20,7 @@ function clickMap(geo, map) {
 }
 
 export function currentMap(lat, lng) {
-    let map = new google.maps.Map(document.getElementById("origin-map"), {
+    let map = new google.maps.Map(document.getElementById("map"), {
         zoom: 16,
         center: { lat: lat, lng: lng },
     });
@@ -39,9 +39,8 @@ export function currentMap(lat, lng) {
         clickMap(e.latLng, map);
     });
     onclick = (e) => {
-        if (e.target === document.getElementById("origin-map-wrapper")) {
-            document.getElementById("origin-map-wrapper").style.display =
-                "none";
+        if (e.target === document.getElementById("map-wrapper")) {
+            document.getElementById("map-wrapper").style.display = "none";
         }
     };
 }
