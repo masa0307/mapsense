@@ -1,6 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
     "/js/geolocation.js": "/js/geolocation.js",
-    "/js/originmap.js": "/js/originmap.js",
+    "/js/origin-map.js": "/js/origin-map.js",
+    "/js/destination-map.js": "/js/destination-map.js",
     "/css/app.css": "/css/app.css"
 }

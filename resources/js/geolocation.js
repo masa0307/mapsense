@@ -1,27 +1,42 @@
-import { currentMap } from "./originmap";
+import { currentMap } from "./origin-map";
+import { initMap } from "./destination-map";
 
 if (navigator.geolocation) {
     // 現在位置を取得できる場合の処理
-    document.getElementById("origin-button").onclick = function () {
-        navigator.geolocation.getCurrentPosition(
-            successCallback,
-            errorCallback
-        );
-        document.getElementById("origin-map-wrapper").style.display = "block";
-    };
+    document.querySelectorAll(".coords-button").forEach(function (el) {
+        el.addEventListener("click", function (e) {
+            if (e.target.id === "origin-button") {
+                navigator.geolocation.getCurrentPosition(
+                    originCallback,
+                    errorCallback
+                );
+            } else if (e.target.id === "destination-button") {
+                navigator.geolocation.getCurrentPosition(
+                    destinationCallback,
+                    errorCallback
+                );
+            }
 
-    function successCallback(position) {
+            document.getElementById("map-wrapper").style.display = "block";
+        });
+    });
+
+    function originCallback(position) {
         //現在位置の緯度を取得
-        let originLocationLat = position.coords.latitude;
+        let currentLocationLat = position.coords.latitude;
         //現在位置の経度を取得
-        let originLocationLng = position.coords.longitude;
+        let currentLocationLng = position.coords.longitude;
 
-        // document.getElementById("origin-location-latitude").value =
-        //     originLocationLatitude;
-        // document.getElementById("origin-location-longitude").value =
-        //     originLocationLongitude;
+        currentMap(currentLocationLat, currentLocationLng);
+    }
 
-        currentMap(originLocationLat, originLocationLng);
+    function destinationCallback(position) {
+        //現在位置の緯度を取得
+        let currentLocationLat = position.coords.latitude;
+        //現在位置の経度を取得
+        let currentLocationLng = position.coords.longitude;
+
+        initMap(currentLocationLat, currentLocationLng);
     }
 
     function errorCallback(error) {
